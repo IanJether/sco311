@@ -9,7 +9,7 @@ export const addToCart = (id,name,price,quantity,image,cartItems,setCartItems) =
         name: name,
         price: price,
         quantity: quantity,
-        imageUrl: image,
+        imageURL: image,
     };
 
     const existingItemIndex = cartItems.findIndex((item) => item.id === id);

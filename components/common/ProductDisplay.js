@@ -19,14 +19,14 @@ const ProductDisplay = ({ id, image, name, price }) => {
     }
 
     return (
-        <div className="mappedlist h-[300px] w-[41.5vw] overflow-hidden bg-white ">
+        <div className="mappedlist h-[260px] lg:h-[300px] lg:h-[20vw] w-[41.5vw] lg:w-[15vw] overflow-hidden bg-white ">
 
             <Link key={id} href={address} >
-                <div className="h-[60%] rr overflow-hidden">
-                    <Image priority height={500} width={500} src={image} className="object-cover w-full h-full" />
+                <div className="h-[65%] rr overflow-hidden">
+                    <Image height={500} width={500} src={image} className="object-cover w-full h-full" />
                 </div>
             </Link>
-            <div className="h-[40%] flex flex-col justify-between px-[3%] py-[4%]">
+            <div className="h-[35%] flex flex-col justify-between px-[3%] py-[4%]">
                 <div className="flex text-center flex-col gap-[2px]">
                     <div className="font-semibod text-[13px] text-neutral-600">
                         <p>{name}</p>

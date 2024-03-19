@@ -21,6 +21,14 @@
   @apply rr h-[44px] w-full mt-[5px] p-[10px] outline-none focus:border border-primary
 }
 
+.inputadd{
+  @apply h-[50px] w-full border p-[10px] border-neutral-300 rr outline-none focus:border-primary
+}
+
+
+.topmargin{
+  @apply mt-[60px]
+}
 
 
 
@@ -70,7 +78,7 @@
 }
 
 .pad{
-  @apply px-[5%] lg:px-[9%];
+  @apply px-[5%] lg:px-[17%];
 }
 
 .rr{

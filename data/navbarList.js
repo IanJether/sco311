@@ -6,11 +6,7 @@ export const navbarList = [
         link: '/'
     },
     {
-        name: 'Collections',
-        link: '/'
-    },
-    {
-        name: 'On Offer',
+        name: 'Categories',
         link: '/'
     },
     {

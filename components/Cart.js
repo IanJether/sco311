@@ -80,12 +80,12 @@ const Cart = () => {
 
 
     return (
-        <div className='Cart mt-[49px] px-[5%]'>
+        <div className='Cart topmargin pad'>
 
 
 
             <div className="py-[20px] uppercase text-neutral-700 text-[23px]">
-                <div onClick={() => router.back()} className=" uppercase  text-[13px] text-neutral-600">
+                <div onClick={() => router.back()} className=" uppercase cursor-pointer  text-[13px] text-neutral-600">
                     <p>Back</p>
                 </div>
                 <div>
@@ -100,15 +100,15 @@ const Cart = () => {
 
                     return (
                         <div key={index} className="mappedcart py-[20px] h-[110px] border-b border-neutral-300 flex gap-[10px] justify-between">
-                            <div className="w-[19%] bg-gray-200 rr overflow-hidden">
-                                <Image className="h-full w-full object-contain" height={300} width={300} src={items.image} priority />
+                            <div className="w-[19%] lg:w-[7%] bg-gray-200 rr overflow-hidden">
+                                <Image className="h-full w-full object-cover" height={300} width={300} src={items.imageURL} />
                             </div>
-                            <div className="w-[79%] flex flex-col justify-between">
+                            <div className="w-[79%] lg:w-[93%] flex flex-col justify-between">
                                 <div className="flex justify-between">
                                     <div className="uppercase w-[85%] text-[14px] text-neutral-700">
                                         <p>{items.name}</p>
                                     </div>
-                                    <div onClick={()=>handleRemoveItem(index)} className="text-[11px] flex justify-end w-[15%] text-neutral-600">
+                                    <div onClick={()=>handleRemoveItem(index)} className="text-[11px] cursor-pointer flex justify-end w-[15%] text-neutral-600">
                                         <FontAwesomeIcon icon={faX} />
                                     </div>
                                 </div>
@@ -138,14 +138,14 @@ const Cart = () => {
                 </div>
             </div>
 
-            <div className="py-[20px] flex flex-col gap-[20px]">
-                <div>
+            <div className="py-[20px] flex flex-col lg:flex-row lg:w-full gap-[20px]">
+                <div className="lg:w-full">
                     <Link href="/checkout"> <button className="button1">Checkout</button> </Link>
                 </div>
-                <div >
+                <div className="lg:w-full" >
                     <Link href="/available"> <button className="button1">Continue shopping</button> </Link>
                 </div>
-                <div >
+                <div  className="lg:w-full">
                   <button onClick={()=>clearCart()} className="button1">Clear cart</button> 
                 </div>
 

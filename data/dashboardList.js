@@ -12,11 +12,11 @@ export const dashboardList = [
     //     link: "/dashboard/add",
     //     icon: faPlusCircle
     // },
-    {
-        name:"Categories",
-        link: "/dashboard/categories",
-        icon: faPieChart
-    },
+    // {
+    //     name:"Categories",
+    //     link: "/dashboard/categories",
+    //     icon: faPieChart
+    // },
     {
         name:"Products",
         link: "/dashboard/products",
