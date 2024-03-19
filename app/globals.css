@@ -2,32 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.button1{
+  @apply border border-primary text-primary uppercase text-[16px] h-[60px] w-full rr;
+}
+.button2{
+  @apply border border-primary bg-primary text-white uppercase text-[16px] h-[50px] w-full rr;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.cod{
+  @apply border-t border-t-neutral-200 py-[16px] text-[22px] text-neutral-600 px-[7%] bg-neutral-100;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.labelsignin{
+  @apply text-white font-semibold
+}
+.inputsignin{
+  @apply rr h-[44px] w-full mt-[5px] p-[10px] outline-none focus:border border-primary
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.no-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 0;
+  
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb {
+  background-color:#007c92;
+  border-radius: 5px;
+}
+
+
+.noSelect {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.noSelect:focus {
+  outline: none !important;
+}
+
+.svg-inline--fa {
+  height: 1em;
+  display: inline;
+  /* vertical-align: -0.125em; */
+}
+
+.pad{
+  @apply px-[5%] lg:px-[9%];
+}
+
+.rr{
+  @apply rounded-[10px] ;
 }
