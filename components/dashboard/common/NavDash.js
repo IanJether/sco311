@@ -30,8 +30,9 @@ function NavDashComp() {
   return (
     <div className='NavDashComp hidden lg:block bg-white shadow-md relative z-20 lg:w-full bg-blac lg:h-[100vh]'>
 
-      <div className=" w-full h-[130px] flex items-center justify-center">
-        <Link href="/"> <Image className="h-[100px] w-[110px] object-contain " height={2000} width={2000} src="/images/logoone.png" alt="" /> </Link>
+      <div className=" w-full h-[130px] flex items-center justify-center font-semibold text-[20px] text-primary">
+        {/* <Link href="/"> <Image className="h-[100px] w-[110px] object-contain " height={2000} width={2000} src="/images/logoone.png" alt="" /> </Link> */}
+        SCO311
       </div>
       <div className="flex flex-col items-cente px-[10px] mt-[40px] gap-[15px]">
         {dashboardList.map((items, index) => {

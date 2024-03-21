@@ -96,7 +96,8 @@ function ProductsDash() {
 
                     <div className="h-[170px] lg:h-[59vh] mt-[30px] no-scrollbar overflow-scroll">
                         {isLoading ?
-                            <LoaderComp/>
+                            <LoaderComp />
+
                             :
                             <div>
                                 {data.map((items, index) => {

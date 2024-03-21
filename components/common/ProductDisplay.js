@@ -18,6 +18,8 @@ const ProductDisplay = ({ id, image, name, price }) => {
         addToCart(id, name, price, 1, image, cartItems, setCartItems)
     }
 
+
+
     return (
         <div className="mappedlist h-[260px] lg:h-[300px] lg:h-[20vw] w-[41.5vw] lg:w-[15vw] overflow-hidden bg-white ">
 
@@ -37,7 +39,7 @@ const ProductDisplay = ({ id, image, name, price }) => {
                     </div>
                 </div>
                 <div className="justify-self-end">
-                    <button onClick={() => handleAddToCart()} className="border border-primary text-primary uppercase rr text-[12px] h-[40px] w-full">Add To Cart </button>
+                    <button onClick={() => {handleAddToCart()}} className="border border-primary text-primary uppercase rr text-[12px] h-[40px] w-full">Add To Cart </button>
                 </div>
             </div>
 
