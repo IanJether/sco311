@@ -40,7 +40,10 @@ function ProductDetails() {
 
     if(isLoading){
         return(
-            <LoaderComp/>
+            <div className="bg-white h-screen">
+
+                <LoaderComp/>
+            </div>
         )
     }
 
@@ -48,7 +51,7 @@ function ProductDetails() {
     return (
         <div className='ProductDetails topmargin'>
 
-            <div className="sectionone relative flex flex-col lg:flex-row lg:items-center gap-[20px] pad py-[30px] navmt">
+            <div className="sectionone relative flex flex-col lg:flex-row lg:items-center gap-[20px] pad py-[30px] lg:py-[80px] navmt">
                 <div data-aos="fade-right" data-aos-duration="500" className="flex items-center justify-center h-[370px] lg:h-[60vh] lg:w-[50%] rr bg-[#efefef]">
                     <Image className=" w-full h-full rr  object-cover" height={500} width={500} src={productDetails.imageURL} alt="" />
                 </div>

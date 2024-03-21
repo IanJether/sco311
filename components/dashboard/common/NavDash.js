@@ -5,14 +5,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { dashboardList } from "@/data/dashboardList";
 import Image from "next/image";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { faSignOut } from "@fortawesome/free-solid-svg-icons";
+import { auth } from "@/db/config";
+import { signOut } from "firebase/auth";
 
 
 
 function NavDashComp() {
 
+  const router = useRouter()
+
   const pathname = usePathname();
+
+  const handleSignOut = ()=>{
+    signOut(auth).then(()=>{
+        alert("Signed Out")
+        router.push('/')
+    })
+}
 
 
 
@@ -44,13 +55,15 @@ function NavDashComp() {
 
           <FontAwesomeIcon className="w-[35px] h-[35px] shrink-0 text-[16px]" icon={faSignOut} />
 
-          <h2 className="capitalize w-[70px] font-semibo ">Sign Out</h2>
+          <h2 onClick={()=>handleSignOut()} className="capitalize w-[70px] font-semibo cursor-pointer">Sign Out</h2>
 
         </div>
 
 
 
       </div>
+
+      
 
 
     </div>

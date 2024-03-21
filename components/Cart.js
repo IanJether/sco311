@@ -84,7 +84,7 @@ const Cart = () => {
 
 
 
-            <div className="py-[20px] uppercase text-neutral-700 text-[23px]">
+            <div className="py-[20px] lg:mt-[60px] uppercase text-neutral-700 text-[23px]">
                 <div onClick={() => router.back()} className=" uppercase cursor-pointer  text-[13px] text-neutral-600">
                     <p>Back</p>
                 </div>
@@ -138,7 +138,7 @@ const Cart = () => {
                 </div>
             </div>
 
-            <div className="py-[20px] flex flex-col lg:flex-row lg:w-full gap-[20px]">
+            <div className="py-[20px] lg:mb-[50px] flex flex-col lg:flex-row lg:w-full gap-[20px]">
                 <div className="lg:w-full">
                     <Link href="/checkout"> <button className="button1">Checkout</button> </Link>
                 </div>

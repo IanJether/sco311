@@ -7,13 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
+import LoaderComp from "./Loader";
+import { auth } from "@/db/config";
+import { signOut } from "firebase/auth";
 
 
 function Navbar() {
 
     const [nav, setNav] = useState(false)
 
-    const { cartItems, setCartItems } = useContext(MyContext)
+    const { cartItems, setCartItems, globalLoading } = useContext(MyContext)
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem('cart'));
@@ -24,9 +27,22 @@ function Navbar() {
 
     const Pathname = usePathname()
 
-    if ( Pathname.startsWith('/dashboard') == true) {
+    if (Pathname.startsWith('/dashboard') == true) {
         return null;
     }
+
+    const user = auth.currentUser
+
+
+
+    const handleSignOut = ()=>{
+        signOut(auth).then(()=>{
+            alert("Signed Out")
+            window.location.reload()
+        })
+    }
+
+    console.log(user)
 
 
 
@@ -50,6 +66,18 @@ function Navbar() {
                             </li>
                         )
                     })}
+
+                    {user ?
+                        <li className="cursor-pointer" onClick={()=>handleSignOut()}>
+                            Sign Out
+                        </li>
+                        :
+                       <Link href="/signin"> <li>
+                            Sign in
+                        </li> </Link>
+                    }
+
+
 
                 </ul>
 
@@ -79,6 +107,9 @@ function Navbar() {
                 </div>
 
             }
+
+            {globalLoading && <LoaderComp />}
+
 
         </div>
     );

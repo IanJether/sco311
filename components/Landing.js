@@ -31,13 +31,13 @@ function Landing() {
                                 <button className="bg-white h-[23px] w-[68px] text-[8px] font-semibold rounded-full uppercase">Affordable</button>
                             </div>
                             <div className="">
-                                <h2 className="font-semibold text-[12px]">Thrifted</h2>
-                                <h1 className="font-semibold text-[26px]">Tote Bags</h1>
+                                <h2 className="font-semibold text-[12px]">Stylish</h2>
+                                <h1 className="font-semibold text-[26px]">Explore Our Collection</h1>
                                 <h2 className="text-[14px] font-semibold text-neutral-600">You'll Love Forever</h2>
                             </div>
 
                             <div className="font-semibold text-[11px] ">
-                                <Link href="/available"> <h3>Shop Now <span className="text-primary text-[15px]"> <FontAwesomeIcon icon={faAngleRight} /></span></h3> </Link>
+                                <Link href="/"> <h3>Shop Now <span className="text-primary text-[15px]"> <FontAwesomeIcon icon={faAngleRight} /></span></h3> </Link>
                             </div>
 
                         </div>

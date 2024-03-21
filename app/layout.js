@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import { MyContextProvider } from "@/state/context";
+import Footer from "@/components/common/Footer";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <div className="mt-[0px]">
           {children}
         </div>
+        <Footer/>
       </body>
     </html>
     </MyContextProvider>
