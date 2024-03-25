@@ -38,7 +38,7 @@ function Footer() {
 
             <div className="footer1 overflow-hidden cursor-pointer flex flex-col gap-[10px] lg:gap-[15px] lg:w-[30%]">
                 <div className="div flex items-center gap-[5px] mb-[15px] lg:mb-[5px] bg-teal-5 font-semibold text-primary">
-                    <Image priority className="h-full w-[90px] object-contain" height={200} width={200} src="/images/logo/logosvg.svg" alt="" />
+                    {/* <Image priority className="h-full w-[90px] object-contain" height={200} width={200} src="/images/logo/logosvg.svg" alt="" /> */}
                     <h1 className="logotext text-[14px] text-[15px] text-sec font-semibold uppercase">SCO 311</h1>
                 </div>
                 {socialLinks.filter((items, index) => index < 3).map((items, index) => {
@@ -108,7 +108,7 @@ function Footer() {
         {/* <div className="linefooter border-b-[1px] border-gray-400"></div> */}
         <div className="footerbottom text-center text-[14px] py-[40px] bg-neutral-900 flex flex-col lg:flex-row lg:justify-between pad gap-[5px]">
             <div>Copyright &copy; 2024 SCO311 Ltd</div>
-           <div>Engineered by Group 5</div>
+           <div>Engineered by Group 6</div>
         </div>
 
     </div>
