@@ -1,7 +1,7 @@
 
 
 
-import ConfirmationBox from "@/components/common/ConfirmBox";
+
 import LoaderComp from "@/components/common/Loader";
 import { db } from "@/db/config";
 import { MyContext } from "@/state/context";
@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 import { doc, updateDoc } from "firebase/firestore";
 
 import { useContext, useEffect, useState } from "react";
+import ConfirmationBox from "@/components/common/ConfirmBox";
+
 
 
 function EditProduct({ data }) {
@@ -85,6 +87,8 @@ function EditProduct({ data }) {
 
                     <div><input value={name} onChange={(e) => setName(e.target.value)} className="inputadd" type="text" placeholder="Title" /></div>
                     <div><input value={price} onChange={(e) => setPrice(e.target.value)} className="inputadd" type="number" placeholder="Price" /></div>
+
+                    
 
                     <div>
                         <label className="labellogin" htmlFor="">Category</label>

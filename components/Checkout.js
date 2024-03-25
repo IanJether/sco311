@@ -134,6 +134,7 @@ const CheckoutComp = () => {
                                     </div>
                                     <div className="border px-[15px]">
                                         <p>{items.quantity}</p>
+                                        
                                     </div>
                                 </div>
 

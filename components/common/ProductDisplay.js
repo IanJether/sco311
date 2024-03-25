@@ -3,6 +3,7 @@
 import { addToCart } from "@/functions/addToCart";
 import { MyContext } from "@/state/context";
 import Image from "next/image";
+
 import Link from "next/link";
 import { useContext } from "react";
 
@@ -21,17 +22,17 @@ const ProductDisplay = ({ id, image, name, price }) => {
 
 
     return (
-        <div className="mappedlist h-[260px] lg:h-[300px] lg:h-[20vw] w-[41.5vw] lg:w-[15vw] overflow-hidden bg-white ">
+        <div className="mappedlist h-[360px] lg:h-[30vw] lg:h-[20vw] w-[41.5vw] lg:w-[15vw] overflow-hidden bg-white ">
 
-            <Link key={id} href={address} >
-                <div className="h-[65%] rr overflow-hidden">
+            <Link className="h-[80%]" key={id} href={address} >
+                <div className="h-[70%] rr overflow-hidden">
                     <Image height={500} width={500} src={image} className="object-cover w-full h-full" />
                 </div>
             </Link>
-            <div className="h-[35%] flex flex-col justify-between px-[3%] py-[4%]">
+            <div className=" h-[20%] flex flex-col gap-[15px] justify-between px-[3%] py-[4%]">
                 <div className="flex text-center flex-col gap-[2px]">
                     <div className="font-semibod text-[13px] text-neutral-600">
-                        <p>{name}</p>
+                     <Link href={address} >   <p>{name}</p>  </Link>
 
                     </div>
                     <div className="font-semibold text-[14px]">
