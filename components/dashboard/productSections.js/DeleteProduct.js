@@ -6,13 +6,16 @@ import ConfirmationBox from "@/components/common/ConfirmBox";
 // import { deleteObject, ref } from "firebase/storage";
 import { useContext, useState } from "react";
 import { MyContext } from "@/state/context";
+import { db } from "@/db/config";
+import { deleteDoc, doc } from "firebase/firestore";
 
 
 
 function DeleteProductComp({details}) {
 
     const [showConfirmation, setShowConfirmation] = useState(false);
-    const { sectionOnDisplay, setSectionOnDisplay } = useContext(MyContext)
+    // const [id, setid] = useState(null)
+    const { setGlobalLoading,setSectionOnDisplay } = useContext(MyContext)
 
 
     const handleCancel = () => {
@@ -26,22 +29,25 @@ function DeleteProductComp({details}) {
 
     }
 
-    // const deleteClick = () => {
+    const deleteClick = () => {
 
-    //     const storageref = ref(storage, details.imageURL)
+        setGlobalLoading(true)
 
-    //     deleteObject(storageref).then(() => {
+        // const storageref = ref(storage, details.imageURL)
+
+        // deleteObject(storageref).then(() => {
         
-    //         deleteDoc(doc(db, "trialone", details.id)).then((() => {
-    //             // alert("deleted")
-    //         }))
+            deleteDoc(doc(db, "sco311", details.id)).then((() => {
+                // alert("deleted")
+                setShowConfirmation(false);
+                setSectionOnDisplay('Details')
+                setGlobalLoading(false)
+            }))
 
-    //     })
+        // })
 
-    //     setShowConfirmation(false);
-    //     setActiveElementWork("Details")
 
-    // }
+    }
 
    
 
@@ -49,13 +55,13 @@ function DeleteProductComp({details}) {
     <div className='DeleteProductComp py-[20px]'>
         <p className="mb-[20px]">This action cannot be undone</p>
         <div className="w-[200px]"><button onClick={() => handleDelete()} className="h-[50px] bg-red-600 text-white w-full rounded-[4px]">Delete</button></div>
-        {/* {showConfirmation && (
+        {showConfirmation && (
                 <ConfirmationBox
                     onConfirm={deleteClick}
                     onCancel={handleCancel}
                     message="Confirm Delete of this product ?"
                 />
-            )} */}
+            )}
     </div>
   );
 }
