@@ -10,6 +10,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
+import LoaderComp from "./common/Loader";
+import { onAuthStateChanged } from "firebase/auth";
 
 
 
@@ -23,7 +25,8 @@ const CheckoutComp = () => {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [delivery, setDelivery] = useState("");
-    const [userdata, setUserdata] = useState(null);
+    const [user, setUser] = useState(null);
+    const { isLoading, userdata } = getUser(user?.uid);
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem('cart'));
@@ -32,23 +35,44 @@ const CheckoutComp = () => {
         }
     }, [])
 
-    // const user = auth.currentUser
 
-    // console.log(user)
+    useEffect(() => {
+        
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser); // Set or clear the user
+        });
     
+        return () => unsubscribe(); 
+      }, []);
 
-    // useEffect(()=>{
+      useEffect(() => {
+        
+        if (userdata) {
+          setName(userdata.name);
+          setPhone(userdata.phone);
+          setDelivery(userdata.delivery);
+          document.querySelector(".outdeldet")?.classList.remove('hidden'); 
+        }
+      }, [userdata]);
 
-    //     const {isLoading,userdata} = getUser(user.uid)
+      if (isLoading || !userdata) {
+        return <LoaderComp />;
+      }
+  
 
-    //     if(user){
+
+   
+    // useEffect(() => {
+
+
+    //     if (user) {
     //         setName(userdata.name)
     //         setPhone(userdata.phone)
     //         setDelivery(userdata.delivery)
     //         document.querySelector(".outdeldet").classList.remove('hidden');
     //     }
 
-    // },[])
+    // }, [])
 
 
     const contactButton = () => {
@@ -97,12 +121,18 @@ const CheckoutComp = () => {
     }
 
     const handleSubmit = () => {
+        const emptyCart = []
+        setCartItems(emptyCart)
+        localStorage.setItem('cart', JSON.stringify(emptyCart));
         handlePostOrder(name, phone, delivery, totalPrice, cartItems, setGlobalLoading, router)
     }
 
+    
+   
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
+  
 
     return (
         <div className="mt-[80px] lg:mt-[100px] pb-[80px] lg:pb-[80px] lg:flex gap-[50px] pad">
@@ -134,7 +164,7 @@ const CheckoutComp = () => {
                                     </div>
                                     <div className="border px-[15px]">
                                         <p>{items.quantity}</p>
-                                        
+
                                     </div>
                                 </div>
 
@@ -264,7 +294,7 @@ const CheckoutComp = () => {
                                     <p>Items </p>
                                 </div>
                                 <div className="font-semibold">
-                                    <p>{0.84 * totalPrice}</p>
+                                    <p>{Math.round(0.84 * totalPrice)}</p>
                                 </div>
 
                             </div>
@@ -273,7 +303,7 @@ const CheckoutComp = () => {
                                     <p>VAT </p>
                                 </div>
                                 <div className="font-semibold">
-                                    <p>{0.16 * totalPrice}</p>
+                                    <p>{Math.round(0.16 * totalPrice)}</p>
                                 </div>
 
                             </div>
@@ -305,7 +335,7 @@ const CheckoutComp = () => {
 
                                 <p className="text-center font-semibold text-green-600 mb-[15px] mt-[15px]">OR</p>
 
-                                <p className="text-center">Pay <span className="font-semibold text-[17px]">Ksh 2160.00 </span> To <span className="text-green-600 font-semibold"> TILL NO <span className="text-[18px]"> 653789 </span></span></p>
+                                <p className="text-center">Pay <span className="font-semibold text-[17px]">Ksh {totalPrice}.00 </span> To <span className="text-green-600 font-semibold"> TILL NO <span className="text-[18px]"> 653789 </span></span></p>
 
                                 <button onClick={paymentButton} className="bg-primary text-white text-[15px] w-full h-[45px] rr mt-[30px]">Continue</button>
 

@@ -35,14 +35,14 @@ function Navbar() {
 
 
 
-    const handleSignOut = ()=>{
-        signOut(auth).then(()=>{
+    const handleSignOut = () => {
+        signOut(auth).then(() => {
             alert("Signed Out")
             window.location.reload()
         })
     }
 
-    console.log(user)
+
 
 
 
@@ -68,11 +68,11 @@ function Navbar() {
                     })}
 
                     {user ?
-                        <li className="cursor-pointer" onClick={()=>handleSignOut()}>
+                        <li className="cursor-pointer" onClick={() => handleSignOut()}>
                             Sign Out
                         </li>
                         :
-                       <Link href="/signin"> <li>
+                        <Link href="/signin"> <li>
                             Sign in
                         </li> </Link>
                     }
@@ -89,8 +89,8 @@ function Navbar() {
 
             {nav &&
 
-                <div className="absolute pad py-[20px] w-full top-[60px] left-0 h-[250px] bg-neutral-700 shadow-md">
-                    <ul className="flex flex-col gap-[15px] text-[17px] capitalize font-semibold text-primary">
+                <div className="absolute pad py-[20px] w-full top-[60px] left-0 h-[120px] bg-neutral-700 shadow-md">
+                    <ul onClick={()=>setNav(!nav)} className="flex flex-col gap-[15px] text-[17px] capitalize font-semibold text-primary">
                         {navbarList.map((items, index) => {
 
                             return (
@@ -101,6 +101,17 @@ function Navbar() {
                                 </li>
                             )
                         })}
+
+                        {user ?
+                            <li className="cursor-pointer" onClick={() => handleSignOut()}>
+                                Sign Out
+                            </li>
+                            :
+                            <Link href="/signin"> <li>
+                                Sign in
+                            </li> </Link>
+                        }
+
 
                     </ul>
 

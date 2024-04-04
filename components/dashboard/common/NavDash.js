@@ -9,6 +9,7 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 import { faSignOut } from "@fortawesome/free-solid-svg-icons";
 import { auth } from "@/db/config";
 import { signOut } from "firebase/auth";
+import { useEffect } from "react";
 
 
 
@@ -18,12 +19,14 @@ function NavDashComp() {
 
   const pathname = usePathname();
 
-  const handleSignOut = ()=>{
-    signOut(auth).then(()=>{
-        alert("Signed Out")
-        router.push('/')
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      alert("Signed Out")
+      router.push('/')
     })
-}
+  }
+
+
 
 
 
@@ -56,7 +59,7 @@ function NavDashComp() {
 
           <FontAwesomeIcon className="w-[35px] h-[35px] shrink-0 text-[16px]" icon={faSignOut} />
 
-          <h2 onClick={()=>handleSignOut()} className="capitalize w-[70px] font-semibo cursor-pointer">Sign Out</h2>
+          <h2 onClick={() => handleSignOut()} className="capitalize w-[70px] font-semibo cursor-pointer">Sign Out</h2>
 
         </div>
 
@@ -64,7 +67,7 @@ function NavDashComp() {
 
       </div>
 
-      
+
 
 
     </div>

@@ -3,7 +3,7 @@
 'use client'
 
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import NavDashComp from "./NavDash";
 import { MyContext } from "@/state/context";
 import LoaderComp from "../../common/Loader";
@@ -11,6 +11,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { dashboardList } from "@/data/dashboardList";
 import Link from "next/link";
+import { auth } from "@/db/config";
+import { useRouter } from "next/navigation";
+
 
 
 
@@ -18,6 +21,19 @@ function MainDash({ children }) {
 
     const { globalLoading } = useContext(MyContext);
     const [menu, setMenu] = useState(false)
+
+    const router = useRouter()
+
+    useEffect(() => {
+        const user = auth.currentUser
+    
+        if (user) {
+          if(user.email !== 'admin001@gmail.com'){
+            router.push('/')
+          }
+        }
+    
+      }, [])
 
     return (
         <div className='MainDash lg:flex'>
@@ -32,7 +48,7 @@ function MainDash({ children }) {
 
                 {menu &&
 
-                    <div className="absolute pad py-[20px] w-full top-[50px] left-0 h-[120px] bg-neutral-700 shadow-md">
+                    <div className="absolute pad py-[20px] w-full top-[50px] left-0 h-[150px] bg-neutral-700 shadow-md">
                         <ul className="flex flex-col gap-[15px] text-[17px] capitalize font-semibold text-primary">
                             {dashboardList.map((items, index) => {
 

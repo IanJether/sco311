@@ -54,7 +54,7 @@ function Footer() {
             </div>
 
             <div className="footer2 flex flex-col gap-[20px] lg:w-[20%]">
-                <div className="text-[20px] font-semibold"><h3>Other Pages</h3></div>
+                <div className="text-[20px] font-semibold"><h3>Pages</h3></div>
                 <div>
                     <ul className="inline-flex flex-col gap-[5px] lg:gap-[15px] text-stone-200">
                         {navbarList.map((items, index) => {
